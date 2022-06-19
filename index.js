@@ -2,7 +2,12 @@ const tmi = require('tmi.js');
 const axios = require('axios');
 const myArgs = process.argv.slice(2);
 let currentMessageCount = 0;
-require('dotenv').config()
+const path = require('path')
+require('dotenv').config({ path: path.resolve(__dirname, '.env') })
+
+console.log(process.env.TWITCH_OAUTH);
+console.log(myArgs[0]);
+
 
 const client = new tmi.Client({
     options: { debug: true },
